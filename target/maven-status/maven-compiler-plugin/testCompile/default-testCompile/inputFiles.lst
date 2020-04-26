@@ -1,6 +1,0 @@
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/repository/SurveyGroupRepositoryIntegrationTest.java
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/model/EmployeeAssignmentTest.java
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/service/SurveyServiceImplTest.java
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/utils/ResourceHelper.java
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/controller/SurveyControllerTest.java
-/home/rassmith/survey-quarkus-spring-service/src/test/java/com/redhat/appdevpractice/samples/survey/controller/SurveyControllerIntegrationTest.java

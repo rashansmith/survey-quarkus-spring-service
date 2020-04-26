@@ -1,6 +1,0 @@
-com/redhat/appdevpractice/samples/survey/service/SurveyServiceImplTest.class
-com/redhat/appdevpractice/samples/survey/utils/ResourceHelper.class
-com/redhat/appdevpractice/samples/survey/repository/SurveyGroupRepositoryIntegrationTest.class
-com/redhat/appdevpractice/samples/survey/controller/SurveyControllerIntegrationTest.class
-com/redhat/appdevpractice/samples/survey/model/EmployeeAssignmentTest.class
-com/redhat/appdevpractice/samples/survey/controller/SurveyControllerTest.class

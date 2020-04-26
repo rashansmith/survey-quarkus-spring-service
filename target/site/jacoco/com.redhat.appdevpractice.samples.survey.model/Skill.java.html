@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Skill.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Feedback 360 Survey API</a> &gt; <a href="index.source.html" class="el_package">com.redhat.appdevpractice.samples.survey.model</a> &gt; <span class="el_source">Skill.java</span></div><h1>Skill.java</h1><pre class="source lang-java linenums">package com.redhat.appdevpractice.samples.survey.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Skill {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;    
+    private String name;
+    private String description;
+    private String category;
+
+<span class="nc" id="L18">    public Skill() { }</span>
+
+<span class="nc" id="L20">    public Skill(String name, String description, String category) {</span>
+<span class="nc" id="L21">        this.name = name;</span>
+<span class="nc" id="L22">        this.description = description;</span>
+<span class="nc" id="L23">        this.category = category;</span>
+<span class="nc" id="L24">    }</span>
+
+    public Long getId() {
+<span class="nc" id="L27">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L31">        this.id = id;</span>
+<span class="nc" id="L32">    }</span>
+
+    public String getName() {
+<span class="nc" id="L35">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L39">        this.name = name;</span>
+<span class="nc" id="L40">    }</span>
+
+    public String getDescription() {
+<span class="nc" id="L43">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="nc" id="L47">        this.description = description;</span>
+<span class="nc" id="L48">    }</span>
+
+    public String getCategory() {
+<span class="nc" id="L51">        return category;</span>
+    }
+
+    public void setCategory(String category) {
+<span class="nc" id="L55">        this.category = category;</span>
+<span class="nc" id="L56">    }</span>
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L60">        final int prime = 31;</span>
+<span class="nc" id="L61">        int result = 1;</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        result = prime * result + ((category == null) ? 0 : category.hashCode());</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        result = prime * result + ((name == null) ? 0 : name.hashCode());</span>
+<span class="nc" id="L64">        return result;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        if (this == obj)</span>
+<span class="nc" id="L70">            return true;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (obj == null)</span>
+<span class="nc" id="L72">            return false;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (getClass() != obj.getClass())</span>
+<span class="nc" id="L74">            return false;</span>
+<span class="nc" id="L75">        Skill other = (Skill) obj;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (category == null) {</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (other.category != null)</span>
+<span class="nc" id="L78">                return false;</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        } else if (!category.equals(other.category))</span>
+<span class="nc" id="L80">            return false;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">        if (name == null) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            if (other.name != null)</span>
+<span class="nc" id="L83">                return false;</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        } else if (!name.equals(other.name))</span>
+<span class="nc" id="L85">            return false;</span>
+<span class="nc" id="L86">        return true;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

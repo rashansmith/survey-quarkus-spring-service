@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SurveyServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Feedback 360 Survey API</a> &gt; <a href="index.source.html" class="el_package">com.redhat.appdevpractice.samples.survey.service</a> &gt; <span class="el_source">SurveyServiceImpl.java</span></div><h1>SurveyServiceImpl.java</h1><pre class="source lang-java linenums">package com.redhat.appdevpractice.samples.survey.service;
+
+import java.util.List;
+import java.util.UUID;
+
+import com.redhat.appdevpractice.samples.survey.exception.ResourceNotFoundException;
+import com.redhat.appdevpractice.samples.survey.model.SurveyGroup;
+import com.redhat.appdevpractice.samples.survey.repository.SurveyGroupRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class SurveyServiceImpl implements SurveyService {
+
+    private SurveyGroupRepository surveyGroupRepository;
+
+    @Autowired
+<span class="nc" id="L19">    public SurveyServiceImpl(SurveyGroupRepository surveyGroupRepository) {</span>
+<span class="nc" id="L20">        this.surveyGroupRepository = surveyGroupRepository;</span>
+<span class="nc" id="L21">    }</span>
+
+    public SurveyGroup createSurveyGroup(SurveyGroup surveyGroup) {
+<span class="nc" id="L24">        surveyGroup.setGuid(UUID.randomUUID().toString());</span>
+<span class="nc" id="L25">        return surveyGroupRepository.saveAndFlush(surveyGroup);</span>
+    }
+
+    public List&lt;SurveyGroup&gt; getSurveyGroups() {
+<span class="nc" id="L29">        return surveyGroupRepository.findAll();</span>
+    }
+
+    public SurveyGroup getSurveyGroup(String surveyGroupGuid) {
+<span class="nc" id="L33">        SurveyGroup surveyGroup = surveyGroupRepository.findByGuid(surveyGroupGuid);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if( surveyGroup == null){</span>
+<span class="nc" id="L35">            throw new ResourceNotFoundException(&quot;The survey group does not exist.&quot;);</span>
+        }
+<span class="nc" id="L37">        return surveyGroup;</span>
+    }
+
+    @Override
+    public SurveyGroup updateSurveyGroup(SurveyGroup oldSurveyGroup, SurveyGroup newSurveyGroup) {
+<span class="nc" id="L42">        oldSurveyGroup.updateWith(newSurveyGroup);</span>
+<span class="nc" id="L43">        return this.surveyGroupRepository.saveAndFlush(oldSurveyGroup);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

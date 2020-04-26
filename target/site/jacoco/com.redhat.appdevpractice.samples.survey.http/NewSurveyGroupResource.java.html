@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NewSurveyGroupResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Feedback 360 Survey API</a> &gt; <a href="index.source.html" class="el_package">com.redhat.appdevpractice.samples.survey.http</a> &gt; <span class="el_source">NewSurveyGroupResource.java</span></div><h1>NewSurveyGroupResource.java</h1><pre class="source lang-java linenums">package com.redhat.appdevpractice.samples.survey.http;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class NewSurveyGroupResource {
+    private String opportunityId;
+    private String projectId;
+    private String projectName;
+    private String tsmId;
+    private String projectCreatorId;
+
+    private List&lt;SkillResource&gt; skillsUsed;
+    private List&lt;EmployeeAssignmentResource&gt; employeeAssignments;
+
+<span class="nc" id="L16">    public NewSurveyGroupResource() {</span>
+<span class="nc" id="L17">        this.skillsUsed = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L18">        this.employeeAssignments = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L19">    }</span>
+
+    public String getOpportunityId() {
+<span class="nc" id="L22">        return opportunityId;</span>
+    }
+
+    public void setOpportunityId(String opportunityId) {
+<span class="nc" id="L26">        this.opportunityId = opportunityId;</span>
+<span class="nc" id="L27">    }</span>
+
+    public String getProjectId() {
+<span class="nc" id="L30">        return projectId;</span>
+    }
+
+    public void setProjectId(String projectId) {
+<span class="nc" id="L34">        this.projectId = projectId;</span>
+<span class="nc" id="L35">    }</span>
+
+    public String getProjectName() {
+<span class="nc" id="L38">        return projectName;</span>
+    }
+
+    public void setProjectName(String projectName) {
+<span class="nc" id="L42">        this.projectName = projectName;</span>
+<span class="nc" id="L43">    }</span>
+
+    public String getTsmId() {
+<span class="nc" id="L46">        return tsmId;</span>
+    }
+
+    public void setTsmId(String tsmId) {
+<span class="nc" id="L50">        this.tsmId = tsmId;</span>
+<span class="nc" id="L51">    }</span>
+
+    public String getProjectCreatorId() {
+<span class="nc" id="L54">        return projectCreatorId;</span>
+    }
+
+    public void setProjectCreatorId(String projectCreatorId) {
+<span class="nc" id="L58">        this.projectCreatorId = projectCreatorId;</span>
+<span class="nc" id="L59">    }</span>
+
+    public List&lt;EmployeeAssignmentResource&gt; getEmployeeAssignments() {
+<span class="nc" id="L62">        return employeeAssignments;</span>
+    }
+
+    public void setEmployeeAssignments(List&lt;EmployeeAssignmentResource&gt; employeeAssignments) {
+<span class="nc" id="L66">        this.employeeAssignments = employeeAssignments;</span>
+<span class="nc" id="L67">    }</span>
+
+    public List&lt;SkillResource&gt; getSkillsUsed() {
+<span class="nc" id="L70">        return skillsUsed;</span>
+    }
+
+    public void setSkillsUsed(List&lt;SkillResource&gt; skillsUsed) {
+<span class="nc" id="L74">        this.skillsUsed = skillsUsed;</span>
+<span class="nc" id="L75">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

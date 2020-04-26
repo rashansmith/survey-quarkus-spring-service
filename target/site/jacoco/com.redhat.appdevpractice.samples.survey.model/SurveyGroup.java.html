@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SurveyGroup.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Feedback 360 Survey API</a> &gt; <a href="index.source.html" class="el_package">com.redhat.appdevpractice.samples.survey.model</a> &gt; <span class="el_source">SurveyGroup.java</span></div><h1>SurveyGroup.java</h1><pre class="source lang-java linenums">package com.redhat.appdevpractice.samples.survey.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+@Entity
+public class SurveyGroup {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String guid;
+
+    private String opportunityId;
+
+    private String projectId;
+
+    private String projectName;
+
+    private String tsmId;
+
+    private String projectCreatorId;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = &quot;surveygroup_employee_assignments&quot;, 
+        joinColumns = { @JoinColumn(name = &quot;id&quot;) }, 
+        inverseJoinColumns = { @JoinColumn(name = &quot;employee_assignement_id&quot;) })
+    private List&lt;EmployeeAssignment&gt; employeeAssignments;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = &quot;surveygroup_skills&quot;, 
+        joinColumns = { @JoinColumn(name = &quot;id&quot;) }, 
+        inverseJoinColumns = { @JoinColumn(name = &quot;skill_id&quot;) })
+    private List&lt;Skill&gt; skillsUsed;
+
+<span class="nc" id="L47">    public SurveyGroup() {</span>
+<span class="nc" id="L48">        this.employeeAssignments = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L49">        this.skillsUsed = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L50">    }</span>
+
+    public Long getId() {
+<span class="nc" id="L53">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L57">        this.id = id;</span>
+<span class="nc" id="L58">    }</span>
+
+    public String getGuid() {
+<span class="nc" id="L61">        return guid;</span>
+    }
+
+    public void setGuid(String guid) {
+<span class="nc" id="L65">        this.guid = guid;</span>
+<span class="nc" id="L66">    }</span>
+
+    public String getOpportunityId() {
+<span class="nc" id="L69">        return opportunityId;</span>
+    }
+
+    public void setOpportunityId(String opportunityId) {
+<span class="nc" id="L73">        this.opportunityId = opportunityId;</span>
+<span class="nc" id="L74">    }</span>
+
+    public String getProjectId() {
+<span class="nc" id="L77">        return projectId;</span>
+    }
+
+    public void setProjectId(String projectId) {
+<span class="nc" id="L81">        this.projectId = projectId;</span>
+<span class="nc" id="L82">    }</span>
+
+    public String getProjectName() {
+<span class="nc" id="L85">        return projectName;</span>
+    }
+
+    public void setProjectName(String projectName) {
+<span class="nc" id="L89">        this.projectName = projectName;</span>
+<span class="nc" id="L90">    }</span>
+
+    public List&lt;EmployeeAssignment&gt; getEmployeeAssignments() {
+<span class="nc" id="L93">        return employeeAssignments;</span>
+    }
+
+    public void setEmployeeAssignments(List&lt;EmployeeAssignment&gt; employeeAssignments) {
+<span class="nc" id="L97">        this.employeeAssignments = employeeAssignments;</span>
+<span class="nc" id="L98">    }</span>
+
+    public String getTsmId() {
+<span class="nc" id="L101">        return tsmId;</span>
+    }
+
+    public void setTsmId(String tsmId) {
+<span class="nc" id="L105">        this.tsmId = tsmId;</span>
+<span class="nc" id="L106">    }</span>
+
+    public String getProjectCreatorId() {
+<span class="nc" id="L109">        return projectCreatorId;</span>
+    }
+
+    public void setProjectCreatorId(String projectCreatorId) {
+<span class="nc" id="L113">        this.projectCreatorId = projectCreatorId;</span>
+<span class="nc" id="L114">    }</span>
+
+    public List&lt;Skill&gt; getSkillsUsed() {
+<span class="nc" id="L117">        return skillsUsed;</span>
+    }
+
+    public void setSkillsUsed(List&lt;Skill&gt; skillsUsed) {
+<span class="nc" id="L121">        this.skillsUsed = skillsUsed;</span>
+<span class="nc" id="L122">    }</span>
+
+	public void updateWith(SurveyGroup newSurveyGroup) {
+<span class="nc" id="L125">        this.opportunityId = newSurveyGroup.getOpportunityId();</span>
+<span class="nc" id="L126">        this.projectCreatorId = newSurveyGroup.getProjectCreatorId();</span>
+<span class="nc" id="L127">        this.projectId = newSurveyGroup.getProjectId();</span>
+<span class="nc" id="L128">        this.projectName = newSurveyGroup.getProjectName();</span>
+<span class="nc" id="L129">        this.tsmId = newSurveyGroup.getTsmId();</span>
+
+<span class="nc" id="L131">        this.skillsUsed = newSurveyGroup.getSkillsUsed();</span>
+<span class="nc" id="L132">        this.employeeAssignments = newSurveyGroup.getEmployeeAssignments();</span>
+<span class="nc" id="L133">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
